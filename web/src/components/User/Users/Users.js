@@ -158,7 +158,7 @@ const UsersList = ({ users }) => {
                   ))}
                 </AntSelect>
               </td>
-              <td>{truncate(user.roles)}</td>
+              {/* <td>{truncate(user.roles)}</td> */}
               <td>{timeTag(user.dateOfBirth)}</td>
               <td>{truncate(user.firstName)}</td>
               <td>{truncate(user.imageUrl)}</td>
