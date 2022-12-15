@@ -21,7 +21,7 @@ const PathForm = (props) => {
     }
   `
   const { loading, data } = useQuery(QUERY)
-  const [parkId, setParkId] = useState('')
+  const [parkId, setParkId] = useState()
   if (loading)
     return (
       <div className="... bg-indigo-500" disabled>
@@ -34,6 +34,7 @@ const PathForm = (props) => {
     )
   const onSubmit = (data) => {
     const record = { ...data, parkId: parkId }
+    console.log(record)
     props.onSave(record, props?.path?.id)
   }
 
@@ -42,8 +43,9 @@ const PathForm = (props) => {
     label: data.name,
   }))
   const handleChangePark = (e) => {
-    setParkId(e.value)
+    setParkId(e)
   }
+
   const onSearch = (e) => {
     setParkId('search', e.value)
   }
