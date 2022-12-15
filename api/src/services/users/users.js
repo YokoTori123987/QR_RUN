@@ -1,6 +1,8 @@
-import { logger } from '@redwoodjs/api/dist/logger'
+// import { logger } from '@redwoodjs/api/dist/logger'
 
 import { db } from 'src/lib/db'
+
+// import { findTotalOfSumRun } from '../runs/runs'
 export const users = () => {
   return db.user.findMany()
 }
@@ -55,4 +57,9 @@ export const updateProfile = async ({ id, input }) => {
     data: input,
     where: { id },
   })
+}
+
+export const resetRun = async () => {
+  console.log('first')
+  return true
 }
