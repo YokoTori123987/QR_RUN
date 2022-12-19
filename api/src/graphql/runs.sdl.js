@@ -15,7 +15,7 @@ export const schema = gql`
     runs: [Run!]! @requireAuth
     run(id: String!): Run @requireAuth
     findFirstRun(userId: String!): [Run!]! @requireAuth
-    findTotalOfSumRun(userId: String!): totalDistance! @skipAuth
+    findTotalOfSumRun(userId: String!): String! @skipAuth
   }
 
   input CreateRunInput {
