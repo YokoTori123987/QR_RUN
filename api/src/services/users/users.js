@@ -71,7 +71,7 @@ export const updateProfile = async ({ id, input }) => {
 
 export const resetRun = async () => {
   scheduleJob('* * 0 * * *', async () => {
-    console.log('first')
+    // console.log('first')
     await db.user.updateMany({
       data: {
         currentCheckpoint: null,
@@ -80,4 +80,10 @@ export const resetRun = async () => {
   })
 
   return true
+}
+
+export const countUsers = async () => {
+  const eoe = await db.park.count()
+  console.log(eoe)
+  return eoe
 }
