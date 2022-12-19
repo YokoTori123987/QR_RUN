@@ -50,7 +50,7 @@ export const findFirstRun = ({ userId }) => {
 }
 
 export const findTotalOfSumRun = async ({ userId }) => {
-  const wow = await db.run.groupBy({
+  const totalDistance = await db.run.groupBy({
     by: ['distance'],
     _sum: {
       distance: true,
@@ -59,6 +59,5 @@ export const findTotalOfSumRun = async ({ userId }) => {
       userId: userId,
     },
   })
-  console.log(wow)
-  return true
+  return totalDistance
 }
