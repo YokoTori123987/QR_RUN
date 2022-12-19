@@ -22,7 +22,6 @@ export const schema = gql`
   type Query {
     users: [User!]! @requireAuth
     user(id: String!): User @requireAuth
-    resetRun: Boolean! @skipAuth
   }
 
   input CreateUserInput {
@@ -67,6 +66,6 @@ export const schema = gql`
     updateUser(id: String!, input: UpdateUserInput!): User! @requireAuth
     deleteUser(id: String!): User! @requireAuth
     updateRoleUser(id: String!, role: String!): User! @requireAuth
-    updateProfile(id: String!, input: UpdateUserProfile!): User! @skipAuth
+    updateProfile(id: String!, input: UpdateUserProfile!): User! @requireAuth
   }
 `
