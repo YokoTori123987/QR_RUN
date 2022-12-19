@@ -5,8 +5,10 @@ import { PrismaClient } from '@prisma/client'
 
 import { emitLogLevels, handlePrismaLogging } from '@redwoodjs/api/logger'
 
-import { logger } from './logger'
+import { resetRun } from 'src/services/users/users'
+// import { gql } from '@redwoodjs/api'
 
+import { logger } from './logger'
 /*
  * Instance of the Prisma Client
  */
@@ -19,3 +21,15 @@ handlePrismaLogging({
   logger,
   logLevels: ['info', 'warn', 'error'],
 })
+
+// export const CREATE_USER = gql`
+//   mutation resetRunMutation {
+//     resetRun
+//   }
+// `
+resetRun()
+// export const handler = () => {
+//   return db.mutate({
+//     mutation: CREATE_USER,
+//   })
+// }

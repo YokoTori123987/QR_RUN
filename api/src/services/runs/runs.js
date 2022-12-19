@@ -39,9 +39,9 @@ export const Run = {
 }
 
 export const findFirstRun = ({ userId }) => {
-  return db.run.findMany({
+  return db.run.findFirst({
     orderBy: {
-      id: 'desc',
+      startTime: 'desc',
     },
     where: {
       userId: userId,
@@ -50,8 +50,7 @@ export const findFirstRun = ({ userId }) => {
 }
 
 export const findTotalOfSumRun = async ({ userId }) => {
-  const totalDistance = await db.run.groupBy({
-    by: ['distance'],
+  const totalDistance = await db.run.aggregate({
     _sum: {
       distance: true,
     },
@@ -59,5 +58,7 @@ export const findTotalOfSumRun = async ({ userId }) => {
       userId: userId,
     },
   })
-  return totalDistance
+  // console.log(totalDistance)
+  // console.log(totalDistance._sum.distance)
+  return totalDistance._sum.distance
 }

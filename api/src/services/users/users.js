@@ -1,4 +1,5 @@
 // import { logger } from '@redwoodjs/api/dist/logger'
+import { scheduleJob } from 'node-schedule'
 
 import { db } from 'src/lib/db'
 
@@ -59,7 +60,24 @@ export const updateProfile = async ({ id, input }) => {
   })
 }
 
+// export const resetRun = async ({ currentCheckpoint }) => {
+//   await db.user.updateMany({
+//     data: {
+//       currentCheckpoint: null,
+//     },
+//   })
+//   return true
+// }
+
 export const resetRun = async () => {
-  console.log('first')
+  scheduleJob('* * 0 * * *', async () => {
+    console.log('first')
+    await db.user.updateMany({
+      data: {
+        currentCheckpoint: null,
+      },
+    })
+  })
+
   return true
 }

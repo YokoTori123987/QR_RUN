@@ -162,6 +162,10 @@ export const handler = async (event, context) => {
     resetPassword: resetPasswordOptions,
     signup: signupOptions,
   })
-
+  const handler = () => {
+    return client.mutate({
+      mutation: INCREMENT_COUNTER,
+    })
+  }
   return await authHandler.invoke()
 }
