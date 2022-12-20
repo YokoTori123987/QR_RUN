@@ -6,9 +6,9 @@ export const schema = gql`
     description: String
     address: String
     workingHours: JSON
-    ownerId: String!
+    ownerId: String
     owner: User
-    governorId: String!
+    governorId: String
     governor: User
     Run: [Run]!
     Checkpoint: [Checkpoint]!
@@ -27,8 +27,8 @@ export const schema = gql`
     description: String
     address: String
     workingHours: JSON
-    ownerId: String!
-    governorId: String!
+    ownerId: String
+    governorId: String
   }
 
   input UpdateParkInput {

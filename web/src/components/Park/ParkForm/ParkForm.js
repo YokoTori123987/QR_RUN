@@ -122,7 +122,6 @@ const ParkForm = (props) => {
           defaultValue={props.park?.ownerId}
           className="rw-input"
           errorClassName="rw-input rw-input-error"
-          validation={{ required: true }}
         />
 
         <FieldError name="ownerId" className="rw-field-error" />
@@ -140,7 +139,6 @@ const ParkForm = (props) => {
           defaultValue={props.park?.governorId}
           className="rw-input"
           errorClassName="rw-input rw-input-error"
-          validation={{ required: true }}
         />
 
         <FieldError name="governorId" className="rw-field-error" />
