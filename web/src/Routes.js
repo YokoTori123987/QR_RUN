@@ -14,6 +14,8 @@ import NavbarLayout from './layouts/NavbarLayout/NavbarLayout'
 const Routes = () => {
   return (
     <Router>
+      <Route path="/governor" page={GovernorPage} name="governor" />
+      <Route path="/owner" page={OwnerPage} name="owner" />
       <Set wrap={NavbarLayout}>
         <Private unauthenticated="home" roles="admin">
           <Set wrap={PathsLayout}>
