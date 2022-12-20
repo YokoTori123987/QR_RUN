@@ -58,6 +58,7 @@ const timeTag = (datetime) => {
     )
   )
 }
+
 const checkboxInputTag = (checked) => {
   return <input type="checkbox" checked={checked} disabled />
 }
@@ -136,6 +137,7 @@ const UsersList = ({ users }) => {
               <td>{truncate(user.salt)}</td>
               <td>{truncate(user.resetToken)}</td>
               <td>{timeTag(user.resetTokenExpiresAt)}</td>
+              {/* <td>{truncate(user.roles)}</td> */}
               <td>
                 <AntSelect
                   style={{ width: '100px' }}
@@ -158,7 +160,6 @@ const UsersList = ({ users }) => {
                   ))}
                 </AntSelect>
               </td>
-              {/* <td>{truncate(user.roles)}</td> */}
               <td>{timeTag(user.dateOfBirth)}</td>
               <td>{truncate(user.firstName)}</td>
               <td>{truncate(user.imageUrl)}</td>
@@ -173,15 +174,15 @@ const UsersList = ({ users }) => {
                     className="rw-button rw-button-small"
                   >
                     Show
-                  </Link> */}
-                  {/* <Link
+                  </Link>
+                  <Link
                     to={routes.editUser({ id: user.id })}
                     title={'Edit user ' + user.id}
                     className="rw-button rw-button-small rw-button-blue"
                   >
                     Edit
-                  </Link> */}
-                  {/* <button
+                  </Link>
+                  <button
                     type="button"
                     title={'Delete user ' + user.id}
                     className="rw-button rw-button-small rw-button-red"

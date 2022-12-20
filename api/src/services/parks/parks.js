@@ -30,6 +30,12 @@ export const deletePark = ({ id }) => {
 }
 
 export const Park = {
+  owner: (_obj, { root }) => {
+    return db.park.findUnique({ where: { id: root?.id } }).owner()
+  },
+  governor: (_obj, { root }) => {
+    return db.park.findUnique({ where: { id: root?.id } }).governor()
+  },
   Run: (_obj, { root }) => {
     return db.park.findUnique({ where: { id: root?.id } }).Run()
   },

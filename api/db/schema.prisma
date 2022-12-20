@@ -21,12 +21,13 @@ model User {
   firstName           String?
   imageUrl            String?   @default("")
   lastName            String?
-  // currentPath         String?
   currentCheckpoint   String?
   createdAt           DateTime? @default(now())
   Run                 Run[]
   Log                 Log[]
   Lap                 Lap[]
+  Park                Park[]
+  PrevPark            Park[]    @relation(name: "PrevPark")
 }
 
 model Park {
@@ -36,8 +37,11 @@ model Park {
   description  String?
   address      String?
   workingHours Json?
+  ownerId      String?
+  owner        User?        @relation(fields: [ownerId], references: [id])
+  governorId   String?
+  governor     User?        @relation(fields: [governorId], references: [id], name: "PrevPark")
   Run          Run[]
-  // PathCheckpoint PathCheckpoint[]
   Checkpoint   Checkpoint[]
   Path         Path[]
 }

@@ -6,6 +6,10 @@ export const schema = gql`
     description: String
     address: String
     workingHours: JSON
+    ownerId: String!
+    owner: User
+    governorId: String!
+    governor: User
     Run: [Run]!
     Checkpoint: [Checkpoint]!
     Path: [Path]!
@@ -23,6 +27,8 @@ export const schema = gql`
     description: String
     address: String
     workingHours: JSON
+    ownerId: String!
+    governorId: String!
   }
 
   input UpdateParkInput {
@@ -31,6 +37,8 @@ export const schema = gql`
     description: String
     address: String
     workingHours: JSON
+    ownerId: String
+    governorId: String
   }
 
   type Mutation {

@@ -17,6 +17,8 @@ export const schema = gql`
     Run: [Run]!
     Log: [Log]!
     Lap: [Lap]!
+    Park: [Park]!
+    PrevPark: [Park]!
   }
 
   type Query {

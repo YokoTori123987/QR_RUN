@@ -1,9 +1,6 @@
-// import { logger } from '@redwoodjs/api/dist/logger'
 import { scheduleJob } from 'node-schedule'
 
 import { db } from 'src/lib/db'
-
-// import { findTotalOfSumRun } from '../runs/runs'
 export const users = () => {
   return db.user.findMany()
 }
@@ -51,6 +48,12 @@ export const User = {
   Lap: (_obj, { root }) => {
     return db.user.findUnique({ where: { id: root?.id } }).Lap()
   },
+  Park: (_obj, { root }) => {
+    return db.user.findUnique({ where: { id: root?.id } }).Park()
+  },
+  PrevPark: (_obj, { root }) => {
+    return db.user.findUnique({ where: { id: root?.id } }).PrevPark()
+  },
 }
 
 export const updateProfile = async ({ id, input }) => {
@@ -59,15 +62,6 @@ export const updateProfile = async ({ id, input }) => {
     where: { id },
   })
 }
-
-// export const resetRun = async ({ currentCheckpoint }) => {
-//   await db.user.updateMany({
-//     data: {
-//       currentCheckpoint: null,
-//     },
-//   })
-//   return true
-// }
 
 export const resetRun = async () => {
   scheduleJob('* * 0 * * *', async () => {
