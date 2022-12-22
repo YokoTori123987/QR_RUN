@@ -10,7 +10,21 @@ export const park = ({ id }) => {
   })
 }
 
-// export const parkUserO
+export const parkUserOwner = async ({ userId }) => {
+  return await db.park.findFirst({
+    where: {
+      ownerId: userId,
+    },
+  })
+}
+
+export const parkUserGovernors = async ({ userId }) => {
+  return await db.park.findMany({
+    where: {
+      governorId: userId,
+    },
+  })
+}
 
 export const createPark = ({ input }) => {
   console.log(input)

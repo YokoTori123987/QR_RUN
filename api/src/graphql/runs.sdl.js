@@ -40,5 +40,6 @@ export const schema = gql`
     createRun(input: CreateRunInput!): Run! @requireAuth
     updateRun(id: String!, input: UpdateRunInput!): Run! @requireAuth
     deleteRun(id: String!): Run! @requireAuth
+    parkcountusers(parkId: String): String! @skipAuth
   }
 `
