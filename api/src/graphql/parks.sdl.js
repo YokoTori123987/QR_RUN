@@ -42,8 +42,9 @@ export const schema = gql`
   }
 
   type Mutation {
-    createPark(input: CreateParkInput!): Park! @requireAuth
+    createPark(input: CreateParkInput!): Park! @skipAuth
     updatePark(id: String!, input: UpdateParkInput!): Park! @requireAuth
     deletePark(id: String!): Park! @requireAuth
+    dwadaw(parkId: String): String! @skipAuth
   }
 `

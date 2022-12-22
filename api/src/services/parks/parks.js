@@ -10,7 +10,10 @@ export const park = ({ id }) => {
   })
 }
 
+// export const parkUserO
+
 export const createPark = ({ input }) => {
+  console.log(input)
   return db.park.create({
     data: input,
   })
@@ -51,4 +54,18 @@ export const countParks = async () => {
   const eoe = await db.park.count()
   // console.log(eoe._count.id)
   return eoe
+}
+// ลอง findMany แล้ว where parkId และ distinct userId
+export const dwadaw = async ({ parkId }) => {
+  const ddd = await db.run.groupBy({
+    by: ['parkId'],
+    where: {
+      parkId: parkId,
+    },
+    _count: {
+      userId: true,
+    },
+  })
+  console.log(ddd)
+  return 'ss'
 }

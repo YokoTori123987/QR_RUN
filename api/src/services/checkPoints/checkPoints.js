@@ -136,7 +136,7 @@ const stopRuning = async ({ userId, checkpointId, checkpointNull }) => {
   // console.log(checkpoint)
   const poplap = await db.lap.findMany({
     orderBy: {
-      id: 'desc',
+      stopTime: 'desc',
     },
     where: {
       userId: userId,

@@ -26,8 +26,8 @@ model User {
   Run                 Run[]
   Log                 Log[]
   Lap                 Lap[]
-  Park                Park[]
-  PrevPark            Park[]    @relation(name: "PrevPark")
+  OwnedParks          Park[]    @relation(name: "OwnedParks")
+  GovernedParks       Park[]    @relation(name: "GovernedParks")
 }
 
 model Park {
@@ -38,12 +38,13 @@ model Park {
   address      String?
   workingHours Json?
   ownerId      String?
-  owner        User?        @relation(fields: [ownerId], references: [id])
+  owner        User?        @relation(fields: [ownerId], references: [id], name: "OwnedParks")
   governorId   String?
-  governor     User?        @relation(fields: [governorId], references: [id], name: "PrevPark")
+  governor     User?        @relation(fields: [governorId], references: [id], name: "GovernedParks")
   Run          Run[]
   Checkpoint   Checkpoint[]
   Path         Path[]
+  // userId       String?
 }
 
 model Run {
