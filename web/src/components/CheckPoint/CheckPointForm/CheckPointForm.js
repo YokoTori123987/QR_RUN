@@ -40,7 +40,7 @@ const CheckpointForm = (props) => {
     const record = { ...data, parkId: parkId }
     props.onSave(record, props?.checkpoint?.id)
   }
-  console.log(data.parks)
+  // console.log(data.parks)
   const parkOption = data.parks.map((data) => ({
     value: data.id,
     label: data.name,

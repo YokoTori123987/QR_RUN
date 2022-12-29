@@ -18,6 +18,7 @@ const Routes = () => {
       <Route path="/owner" page={OwnerPage} name="owner" />
       <Set wrap={NavbarLayout}>
         <Private unauthenticated="home" roles="admin">
+          <Route path="/admin/checkPath" page={CheckPathPage} name="checkPath" />
           <Set wrap={PathsLayout}>
             <Route path="/admin/paths/new" page={PathNewPathPage} name="newPath" />
             <Route path="/admin/paths/{id}/edit" page={PathEditPathPage} name="editPath" />

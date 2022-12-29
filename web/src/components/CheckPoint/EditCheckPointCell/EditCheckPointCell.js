@@ -51,9 +51,9 @@ export const Success = ({ checkpoint }) => {
   )
 
   const onSave = (input, id) => {
-    console.log(input)
+    // console.log(input)
     updateCheckpoint({ variables: { id, input } })
-    console.log(JSON.stringify(updateCheckpoint))
+    // console.log(JSON.stringify(updateCheckpoint))
   }
 
   return (
